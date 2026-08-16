@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "9lR9hiDAUUs=",
+  "dgSpecHash": "GdP2R4lqCxM=",
   "success": true,
   "projectFilePath": "D:\\Dot net projects\\SaaSBillingApi\\src\\SaaSBillingApi.Api\\SaaSBillingApi.Api.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\mohmu\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.10\\microsoft.aspnetcore.openapi.9.0.10.nupkg.sha512",
+    "C:\\Users\\mohmu\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
   "logs": []
 }
