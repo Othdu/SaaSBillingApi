@@ -1,12 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Http;
+using SaaSBillingApi.Application.Interfaces;
 
-namespace SaaSBillingApi.Infrastructure.Services
+namespace SaaSBillingApi.Infrastructure.Services;
+
+public class TenantContext : ITenantContext
 {
-    internal class TenantContext
+    private readonly IHttpContextAccessor _httpContextAccessor;
+
+    public TenantContext(IHttpContextAccessor httpContextAccessor)
     {
+        _httpContextAccessor = httpContextAccessor;
+    }
+
+    public Guid TenantId
+    {
+        get
+        {
+            var tenantIdClaim = _httpContextAccessor.HttpContext?.User?.FindFirst("tenant_id");
+
+            if (tenantIdClaim is null || !Guid.TryParse(tenantIdClaim.Value, out var tenantId))
+                throw new InvalidOperationException("No tenant context is available for the current request.");
+
+            return tenantId;
+        }
     }
 }
