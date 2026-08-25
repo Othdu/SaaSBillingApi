@@ -13,7 +13,7 @@ public static class DependencyInjection
     {
         services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
-
+        services.AddScoped<IPasswordHasher, PasswordHasher>();
         services.AddHttpContextAccessor();
         services.AddScoped<ITenantContext, TenantContext>();
 
