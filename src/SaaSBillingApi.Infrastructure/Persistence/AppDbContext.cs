@@ -15,6 +15,7 @@ namespace SaaSBillingApi.Infrastructure.Persistence
 
         public DbSet<Tenant>Tenants =>Set<Tenant>();
         public DbSet<Plan> Plans => Set<Plan>();
+        public DbSet<User> Users => Set<User>();
         public DbSet<Subscription> Subscriptions => Set<Subscription>();
 
         public AppDbContext(DbContextOptions<AppDbContext> options, ITenantContext tenantContext) : base(options)
@@ -50,6 +51,13 @@ namespace SaaSBillingApi.Infrastructure.Persistence
                 entity.HasOne<Plan>()
                       .WithMany()
                       .HasForeignKey(s => s.PlanId);
+            });
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.Property(u => u.Email).IsRequired().HasMaxLength(256);
+                entity.HasIndex(u => u.Email).IsUnique();
+                entity.Property(u => u.PasswordHash).IsRequired();
+                entity.HasOne<Tenant>().WithMany().HasForeignKey(u => u.TenantId);
             });
 
         }

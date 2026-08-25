@@ -1,4 +1,3 @@
-// src/SaaSBillingApi.Application/Interfaces/IUnitOfWork.cs
 using SaaSBillingApi.Domain.Entities;
 using System.Threading;
 using System.Threading.Tasks;
@@ -9,6 +8,7 @@ public interface IUnitOfWork
 {
     IRepository<Tenant> Tenants { get; }
     IRepository<Plan> Plans { get; }
+    IUserRepository Users { get; }
     IRepository<Subscription> Subscriptions { get; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);

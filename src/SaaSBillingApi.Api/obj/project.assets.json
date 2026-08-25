@@ -1590,6 +1590,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.10",
           "SaaSBillingApi.Domain": "1.0.0"
         },
         "compile": {

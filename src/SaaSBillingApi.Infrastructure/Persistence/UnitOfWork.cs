@@ -9,6 +9,7 @@ public class UnitOfWork : IUnitOfWork
 
     public IRepository<Tenant> Tenants { get; }
     public IRepository<Plan> Plans { get; }
+    public IUserRepository Users { get; }
     public IRepository<Subscription> Subscriptions { get; }
 
     public UnitOfWork(AppDbContext context)
@@ -16,6 +17,7 @@ public class UnitOfWork : IUnitOfWork
         _context = context;
         Tenants = new Repository<Tenant>(context);
         Plans = new Repository<Plan>(context);
+        Users = new UserRepository(context);
         Subscriptions = new Repository<Subscription>(context);
     }
 
