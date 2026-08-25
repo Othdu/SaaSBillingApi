@@ -35,7 +35,11 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddAuthorization();
 
 var app = builder.Build();
-
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<SaaSBillingApi.Infrastructure.Persistence.AppDbContext>();
+    await SaaSBillingApi.Infrastructure.Persistence.DbSeeder.SeedAsync(context);
+}
 app.UseAuthentication();
 app.UseAuthorization();
 

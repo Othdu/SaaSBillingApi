@@ -15,6 +15,8 @@ public static class DependencyInjection
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
         services.AddScoped<IPasswordHasher, PasswordHasher>();
         services.AddHttpContextAccessor();
+        services.AddScoped<IPasswordHasher, PasswordHasher>();
+        services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
         services.AddScoped<ITenantContext, TenantContext>();
 
         services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
