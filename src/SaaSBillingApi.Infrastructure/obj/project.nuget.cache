@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "UiWJl0h+g3E=",
+  "dgSpecHash": "gGUs9z5/VZE=",
   "success": true,
   "projectFilePath": "D:\\Dot net projects\\SaaSBillingApi\\src\\SaaSBillingApi.Infrastructure\\SaaSBillingApi.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mohmu\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\mohmu\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
+    "C:\\Users\\mohmu\\.nuget\\packages\\fluentvalidation\\9.1.0\\fluentvalidation.9.1.0.nupkg.sha512",
+    "C:\\Users\\mohmu\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\9.1.0\\fluentvalidation.dependencyinjectionextensions.9.1.0.nupkg.sha512",
     "C:\\Users\\mohmu\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\mohmu\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\9.0.10\\microsoft.aspnetcore.authentication.jwtbearer.9.0.10.nupkg.sha512",
     "C:\\Users\\mohmu\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",

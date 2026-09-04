@@ -16,17 +16,10 @@ namespace SaaSBillingApi.Api.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequestDto request, CancellationToken cancellationToken)
         {
-            try
-            {
+           
                 var response = await _authService.LoginAsync(request, cancellationToken);
                 return Ok(response);
-            }
-
-            catch (UnauthorizedAccessException ex)
-            {
-                return Unauthorized(new { message = ex.Message });
-            }
-
+           
         }
     }
 }

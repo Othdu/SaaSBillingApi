@@ -47,6 +47,36 @@
           }
         }
       },
+      "FluentValidation/9.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/FluentValidation.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/FluentValidation.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "FluentValidation.DependencyInjectionExtensions/9.1.0": {
+        "type": "package",
+        "dependencies": {
+          "FluentValidation": "9.1.0",
+          "Microsoft.Extensions.Dependencyinjection.Abstractions": "2.1.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Humanizer.Core/2.14.1": {
         "type": "package",
         "compile": {
@@ -1590,6 +1620,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
+          "FluentValidation": "9.1.0",
+          "FluentValidation.DependencyInjectionExtensions": "9.1.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.10",
           "SaaSBillingApi.Domain": "1.0.0"
         },
@@ -1667,6 +1699,34 @@
         "azureicon.png",
         "lib/netstandard2.0/Azure.Identity.dll",
         "lib/netstandard2.0/Azure.Identity.xml"
+      ]
+    },
+    "FluentValidation/9.1.0": {
+      "sha512": "FRhaDx3vzj5+zqSEY6cKJDaT7eHhsYAX/TNb56TXCs7y9P1E1huZfxGvtWZFESSZzdFSJ5BJO6fzEPEbf0ENKg==",
+      "type": "package",
+      "path": "fluentvalidation/9.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fluentvalidation.9.1.0.nupkg.sha512",
+        "fluentvalidation.nuspec",
+        "lib/net461/FluentValidation.dll",
+        "lib/net461/FluentValidation.xml",
+        "lib/netstandard2.0/FluentValidation.dll",
+        "lib/netstandard2.0/FluentValidation.xml"
+      ]
+    },
+    "FluentValidation.DependencyInjectionExtensions/9.1.0": {
+      "sha512": "onmVLIYrZJeaS4uJDfrHX3w91dE+LpaWMP25eB3Ajlku8PvsOtxhsFNfQliscQg+kHDrwVYNGs5FH9ZV9mea7Q==",
+      "type": "package",
+      "path": "fluentvalidation.dependencyinjectionextensions/9.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fluentvalidation.dependencyinjectionextensions.9.1.0.nupkg.sha512",
+        "fluentvalidation.dependencyinjectionextensions.nuspec",
+        "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.dll",
+        "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.xml"
       ]
     },
     "Humanizer.Core/2.14.1": {
