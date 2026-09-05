@@ -6,7 +6,7 @@ using SaaSBillingApi.Domain.Enums;
 using SaaSBillingApi.Infrastructure.Persistence;
 using System.Threading;
 
-namespace SaaSBillingApi.Infrastructure.BackgroundJobs;
+namespace SaaSBillingApi.Infrastructure.BackgroundJobss;
 
 public class DailyBillingService : BackgroundService
 {
