@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SaaSBillingApi.Application.Interfaces;
+using SaaSBillingApi.Infrastructure.BackgroundJobs;
 using SaaSBillingApi.Infrastructure.Persistence;
 using SaaSBillingApi.Infrastructure.Services;
 
@@ -18,7 +19,7 @@ public static class DependencyInjection
         services.AddScoped<IPasswordHasher, PasswordHasher>();
         services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
         services.AddScoped<ITenantContext, TenantContext>();
-
+        services.AddHostedService<DailyBillingService>();
         services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         services.AddScoped<IUnitOfWork, UnitOfWork>();
 
