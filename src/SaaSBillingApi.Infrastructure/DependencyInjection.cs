@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SaaSBillingApi.Application.Interfaces;
-using SaaSBillingApi.Infrastructure.BackgroundJobs;
+using SaaSBillingApi.Infrastructure.BackgroundJobss;
 using SaaSBillingApi.Infrastructure.Persistence;
 using SaaSBillingApi.Infrastructure.Services;
 

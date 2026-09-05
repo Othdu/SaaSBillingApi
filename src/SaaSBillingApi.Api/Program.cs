@@ -1,10 +1,18 @@
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Serilog;
 using SaaSBillingApi.Application;
 using SaaSBillingApi.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Host.UseSerilog((context, configuration) =>
+    configuration
+        .MinimumLevel.Information()
+        .Enrich.FromLogContext()
+        .WriteTo.Console(
+            outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] TenantId={TenantId} {Message:lj}{NewLine}{Exception}"));
 
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication();
@@ -12,6 +20,7 @@ builder.Services.AddControllers(options =>
 {
     options.Filters.Add<SaaSBillingApi.Api.Filters.ValidationFilter>();
 });
+
 var jwtSettings = builder.Configuration.GetSection("Jwt");
 var secretKey = jwtSettings["Secret"]!;
 
@@ -37,14 +46,20 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddAuthorization();
 
 var app = builder.Build();
+
 app.UseMiddleware<SaaSBillingApi.Api.Middleware.ExceptionHandlingMiddleware>();
+
 using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<SaaSBillingApi.Infrastructure.Persistence.AppDbContext>();
     await SaaSBillingApi.Infrastructure.Persistence.DbSeeder.SeedAsync(context);
 }
+
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseMiddleware<SaaSBillingApi.Api.Middleware.TenantLoggingMiddleware>();
+app.UseSerilogRequestLogging();
 
 app.MapControllers();
 
